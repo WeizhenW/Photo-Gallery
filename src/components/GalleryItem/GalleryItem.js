@@ -4,6 +4,7 @@ class GalleryItem extends Component {
 
     state = {
         showPhoto: true,
+        numberLikes: 0,
     }
 
     handleClick = () => {
@@ -11,6 +12,12 @@ class GalleryItem extends Component {
             showPhoto: !this.state.showPhoto,
         })
     }
+
+    // handleLoveButton = () {
+
+    // }
+
+
     render() {
         return(
             <div onClick = {this.handleClick} className="individualPhoto">
@@ -26,7 +33,13 @@ class GalleryItem extends Component {
                 </div>     
                 }
                 <br />
-                <button>Love it!</button>             
+                <button>Love it!</button>
+                <div>
+                    {this.state.numberLikes === 0?
+                        <p>No people love this :(</p>
+                    :
+                        <p>{this.state.numberLikes} people like this!</p>}
+                </div>             
             </div> 
         )
     }
