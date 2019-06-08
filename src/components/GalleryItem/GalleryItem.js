@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
 import './GalleryItem.css';
+import axios from 'axios';
 
 class GalleryItem extends Component {
     //create a showPhoto state property to indicate if it displays the photo (value = true)
     //or the description (value = false) on the DOM
     state = {
         showPhoto: true,
-        counter: 0,
     }
+
     //function to toggle the showPhoto value
     handleClickPhoto = () => {
         this.setState({
             showPhoto: !this.state.showPhoto,
         })
-    }    
+    }
+    
+    //function to update the # of likes in the data file on server
+    handleClickButton = () => {
+        axios ({
+            method: 'PUT',
+            url: '/gallery/like/' + this.props.photo.id,
+          }).then(
+              () => {
+                  //call loadImage function to reload the page
+                  this.props.loadImage();
+              }
+          )
+    }
 
     render() {
         return (
@@ -37,7 +51,7 @@ class GalleryItem extends Component {
                 }
                 <br />
                 {/* attach onClick event listener and call handleLoveButton function  */}
-                <button onClick={this.props.handleClickButton} id={this.props.photo.id} className="likeButton">Love it!</button>
+                <button onClick={this.handleClickButton} id={this.props.photo.id} className="likeButton">Love it!</button>
                 <div>
                     {/* ternary operator to display different sentences based on the value retrieved
                     from the photo props */}

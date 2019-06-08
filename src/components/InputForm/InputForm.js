@@ -14,6 +14,7 @@ class InputForm extends Component {
                 <input id="urlInput"></input>
                 <label for="descriptionInput">Enter Image Description</label>
                 <input id="descriptionInput"></input>
+                <button >Click</button>
 
 
 

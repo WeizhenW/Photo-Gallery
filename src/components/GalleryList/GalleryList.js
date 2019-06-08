@@ -9,7 +9,7 @@ class GalleryList extends Component {
             <div className="allPhotos">
                 {/* get each individual photo from the list and pass it to GalleryItem Component as a prop */}
                 {this.props.photoList.map(photo => 
-                    <GalleryItem photo={photo} key={photo.id} handleClickButton = {this.props.handleClickButton}/>
+                    <GalleryItem photo={photo} key={photo.id} loadImage = {this.props.loadImage}/>
                 )}
             </div>
         )

@@ -34,23 +34,6 @@ class App extends Component {
     this.loadImage();
   }
 
-  //put request to update the # of likes in the data file on server
-  handleClickButton = (event) => {
-    //axios put request
-    axios ({
-      method: 'PUT',
-      url: '/gallery/like/' + event.target.id,
-    }).then(
-      //followed by a get request to retrieve updated data and reload the page
-      () => {
-        this.loadImage();
-      }
-    ).catch(
-      error => {
-        console.log('error with axios put route', error);
-      }
-    )
-}
 
   render() {
     return (
@@ -61,7 +44,7 @@ class App extends Component {
         <br/>
         <InputForm />
         {/* below pass the photoList state property as a prop to the GalleryList Component */}
-        <GalleryList photoList={this.state.photoList} handleClickButton = {this.handleClickButton} />
+        <GalleryList photoList={this.state.photoList} loadImage = {this.loadImage} />
       </div>
     );
   }
