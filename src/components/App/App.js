@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+  state = ({
+    photoList: [],
+  });
+
+  componentDidMount() {
+    axios ({
+      method: 'GET',
+      url: '/gallery'
+    }).then(
+      response => {
+        console.log(response.data);
+        this.setState({
+          photoList: response.data
+        })
+        console.log(this.state.photoList);
+      }
+    )
+  }
   render() {
     return (
       <div className="App">
