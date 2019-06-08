@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import GalleryItem from '../GalleryItem/GalleryItem';
+import './GalleryList.css';
 
 class GalleryList extends Component {
 

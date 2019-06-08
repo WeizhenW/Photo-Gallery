@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import './GalleryItem.css';
 
 class GalleryItem extends Component {
     //create a showPhoto state property to indicate if it displays the photo (value = true)
@@ -24,20 +24,20 @@ class GalleryItem extends Component {
                     //show photo in case of truthy
                     //attach onClick event listener and call handleClick function
                     <img onClick={this.handleClickPhoto}
-                        height="100px" width="100px"
+                        height="200px" width="200px"
                         key={this.props.photo.id}
                         src={this.props.photo.path}
                         alt={this.props.photo.description} />
                     :
                     //show description in case of falsy
-                    <div height="100px" width="100px">
+                    <div height="200px" width="200px">
                         {/* attach onClick event listener and call handleClick function */}
                         <p onClick={this.handleClickPhoto}>{this.props.photo.description}</p>
                     </div>
                 }
                 <br />
                 {/* attach onClick event listener and call handleLoveButton function  */}
-                <button onClick={this.props.handleClickButton} id={this.props.photo.id}>Love it!</button>
+                <button onClick={this.props.handleClickButton} id={this.props.photo.id} className="likeButton">Love it!</button>
                 <div>
                     {/* ternary operator to display different sentences based on the value retrieved
                     from the photo props */}
