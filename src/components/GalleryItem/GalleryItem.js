@@ -13,27 +13,28 @@ class GalleryItem extends Component {
         })
     }
 
-    // handleLoveButton = () {
-
-    // }
-
+    handleLoveButton = () => {
+        this.setState({
+            numberLikes: this.state.numberLikes + 1,
+        })
+    }
 
     render() {
         return(
-            <div onClick = {this.handleClick} className="individualPhoto">
+            <div className="individualPhoto">
                 {this.state.showPhoto? 
-                    <img  
+                    <img  onClick = {this.handleClick}
                         height="100px" width="100px" 
                         key={this.props.photo.id} 
                         src={this.props.photo.path} 
                         alt={this.props.photo.description}/>
                 :
                 <div height="100px" width="100px">
-                    <p >{this.props.photo.description}</p>
+                    <p onClick = {this.handleClick}>{this.props.photo.description}</p>
                 </div>     
                 }
                 <br />
-                <button>Love it!</button>
+                <button onClick={this.handleLoveButton}>Love it!</button>
                 <div>
                     {this.state.numberLikes === 0?
                         <p>No people love this :(</p>
