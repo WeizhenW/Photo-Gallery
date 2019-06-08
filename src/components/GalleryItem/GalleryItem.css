@@ -13,3 +13,10 @@ img {
     border: solid #444 1px;
     padding: 4px;
 }
+
+.numLikes {
+    color: darkcyan;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

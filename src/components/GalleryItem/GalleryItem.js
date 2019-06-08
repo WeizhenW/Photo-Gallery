@@ -42,9 +42,9 @@ class GalleryItem extends Component {
                     {/* ternary operator to display different sentences based on the value retrieved
                     from the photo props */}
                     {this.props.photo.likes === 0 ?
-                        <p>No people love this :(</p>
+                        <p className="numLikes">No people love this :(</p>
                         :
-                        <p>{this.props.photo.likes} people like this!</p>}
+                        <p className="numLikes">{this.props.photo.likes} people like this!</p>}
                 </div>
             </div>
         )
