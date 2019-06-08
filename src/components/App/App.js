@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import GalleryItem from '../GalleryItem/GalleryItem'
 
 class App extends Component {
   state = ({
@@ -13,7 +14,6 @@ class App extends Component {
       url: '/gallery'
     }).then(
       response => {
-        console.log(response.data);
         this.setState({
           photoList: response.data
         })
@@ -28,8 +28,15 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <div className="allPhotos">
+          {this.state.photoList.map(photo => 
+            <GalleryItem photo={photo} key={photo.id} />
+        )}
+
+
+        </div>
+        
+
       </div>
     );
   }
