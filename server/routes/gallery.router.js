@@ -55,8 +55,21 @@ router.put('/like/:id', (req, res) => {
 //POST Route
 router.post('/', (req, res) => {
     const newItem = req.body;
-    galleryItems.push(newItem);
-    res.sendStatus(200);
+    pool.query(`
+    INSERT INTO "images" ("url", "description", "likes")
+    VALUES ($1, $2, 0);
+    `, [newItem.url, newItem.description])
+    .then(
+        () => {
+            res.sendStatus(200);
+        }
+    ).catch(
+        error => {
+            console.log('error with axios post route', error);
+        }
+    )
+    // galleryItems.push(newItem);
+    
 
 })
 

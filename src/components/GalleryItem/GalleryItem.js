@@ -27,6 +27,10 @@ class GalleryItem extends Component {
                   //call loadImage function to reload the page
                   this.props.loadImage();
               }
+          ).catch(
+              error => {
+                  console.log('error with axios put route', error);
+              }
           )
     }
 
