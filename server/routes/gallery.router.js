@@ -21,4 +21,12 @@ router.get('/', (req, res) => {
     res.send(galleryItems);
 }); // END GET Route
 
+//POST Route
+router.post('/', (req, res) => {
+    const newItem = req.body;
+    galleryItems.push(newItem);
+    res.sendStatus(200);
+})
+
+
 module.exports = router;

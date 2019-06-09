@@ -1,0 +1,28 @@
+.inputForm {
+    text-align: left;
+    max-width: 45%;
+    margin: 20px auto;
+}
+
+
+input {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 30px;
+    width: 250px;
+    padding: 5px;
+    font-size: 14px;
+
+}
+
+#submitButton {
+    height: 40px;
+    width: 130px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: darkgreen;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    margin-left: 50px
+}
