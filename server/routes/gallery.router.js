@@ -14,22 +14,10 @@ const pool = Pool(config);
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
-// PUT Route
-router.put('/like/:id', (req, res) => {
-    console.log(req.params);
-    const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
-    res.sendStatus(200);
-}); // END PUT Route
-
 // GET Route
 router.get('/', (req, res) => {
     pool.query(`
-    SELECT * FROM "images";
+    SELECT * FROM "images" ORDER BY "id";
     `).then(
         result => {
             res.send(result.rows);
@@ -40,6 +28,29 @@ router.get('/', (req, res) => {
         }
     )
 }); // END GET Route
+
+// PUT Route
+router.put('/like/:id', (req, res) => {
+    const galleryId = req.params.id;
+    pool.query(`
+    UPDATE "images" SET "likes"= "likes" + 1 WHERE "id"=$1
+    `, [galleryId]).then(
+        () => {
+            res.sendStatus(200);
+        }
+    ).catch(
+        error => {
+            console.log('error with put route', error);
+        }
+    )
+    // for(const galleryItem of galleryItems) {
+    //     if(galleryItem.id == galleryId) {
+    //         galleryItem.likes += 1;
+    //     }
+    // }
+}); // END PUT Route
+
+
 
 //POST Route
 router.post('/', (req, res) => {
