@@ -1,0 +1,9 @@
+
+.deleteButton {
+    width: 100px;
+    font-weight: 400;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 6px;
+    margin-top: 10px;
+}

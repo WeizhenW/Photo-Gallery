@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import './DeleteImage.css';
+
+
 
 class DeleteImage extends Component {
     //function to perform the delete request to server and then reload the page
@@ -21,7 +25,10 @@ class DeleteImage extends Component {
         return(
             <>
                 {/* button with click event listener to trigger the delete of the photo */}
-                <button onClick={this.deletePhoto} className="deleteButton">Delete</button>
+                <Button  variant="contained" color="secondary"  className = "deleteButton" onClick={this.deletePhoto}>
+                    Delete
+                    {/* <DeleteIcon /> */}
+                </Button>
             </>
 
         )
