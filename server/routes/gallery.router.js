@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const galleryItems = require('../modules/gallery.data');
+let galleryItems = require('../modules/gallery.data');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
@@ -25,6 +25,23 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const newItem = req.body;
     galleryItems.push(newItem);
+    res.sendStatus(200);
+
+})
+
+//DELETE Route
+router.delete('/delete/:id', (req, res) => {
+    const idToDelete = req.params.id;
+    //initialize the index value
+    let index = 0;
+    //loop through to get the index of the photo to be deleted
+    galleryItems.forEach(photo => {
+        if(photo.id ==  idToDelete) { //idToDelete is string, photo.id is number
+            index = galleryItems.indexOf(photo);
+        }
+    })
+    //delete the photo from the array
+    galleryItems.splice(index, 1);
     res.sendStatus(200);
 })
 
