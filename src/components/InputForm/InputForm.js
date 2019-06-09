@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './InputForm.css';
+import Button from '@material-ui/core/Button';
+
 
 class InputForm extends Component {
 
@@ -58,7 +60,7 @@ class InputForm extends Component {
             <div className="inputForm" >
                 <input onChange={this.handleChangeFor('url')} value={this.state.url} id="urlInput" placeholder="Enter image url"></input>
                 <input onChange={this.handleChangeFor('description')} value={this.state.description} id="descriptionInput" placeholder="Enter image description"></input>
-                <button onClick={this.handleSubmit} id="submitButton">Submit Image</button>
+                <Button onClick={this.handleSubmit} id="submitButton">Submit Image</Button>
             </div>
         )
     }

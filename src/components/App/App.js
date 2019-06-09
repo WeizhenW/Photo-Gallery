@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList';
 import InputForm from '../InputForm/InputForm';
+import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
   state = ({
@@ -42,9 +43,20 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <InputForm loadImage={this.loadImage} />
-        {/* below pass the photoList state property as a prop to the GalleryList Component */}
-        <GalleryList photoList={this.state.photoList} loadImage = {this.loadImage} />
+
+        <div >
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={3}>
+              <InputForm loadImage={this.loadImage} />
+            </Grid>
+            
+            <Grid item xs={12} md={9}>
+              {/* below pass the photoList state property as a prop to the GalleryList Component */}
+              <GalleryList photoList={this.state.photoList} loadImage = {this.loadImage} /> 
+            </Grid>
+          </Grid>
+        </div>
+        
       </div>
     );
   }
