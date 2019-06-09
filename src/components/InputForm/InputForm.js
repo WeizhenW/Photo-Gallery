@@ -21,7 +21,6 @@ class InputForm extends Component {
     //function to perform a post request to the data file on server 
     //and then reload the page
     handleSubmit = () => {
-        console.log(this.state);
         axios({
             method: 'POST',
             url: '/gallery',

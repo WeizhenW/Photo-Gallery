@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DeleteImage from '../DeleteImage/DeleteImage';
 import './GalleryItem.css';
 import axios from 'axios';
 
@@ -52,6 +53,7 @@ class GalleryItem extends Component {
                 <br />
                 {/* attach onClick event listener and call handleLoveButton function  */}
                 <button onClick={this.handleClickButton} id={this.props.photo.id} className="likeButton">Love it!</button>
+                <DeleteImage id={this.props.photo.id} loadImage={this.props.loadImage}/>
                 <div>
                     {/* ternary operator to display different sentences based on the value retrieved
                     from the photo props */}
