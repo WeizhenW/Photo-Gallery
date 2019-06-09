@@ -42,7 +42,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <InputForm />
+        <InputForm loadImage={this.loadImage} />
         {/* below pass the photoList state property as a prop to the GalleryList Component */}
         <GalleryList photoList={this.state.photoList} loadImage = {this.loadImage} />
       </div>
