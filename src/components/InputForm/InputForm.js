@@ -8,7 +8,7 @@ class InputForm extends Component {
         url: '',
         description: '',
         //initialize the counter => to be used as id for new photo
-        counter: 10,
+        // counter: 10,
     }
     
     //function to capture the input and change the value in the state respectively
@@ -26,8 +26,8 @@ class InputForm extends Component {
             url: '/gallery',
             //pass the data obj with the information input
             data: {
-                id: this.state.counter,
-                path: this.state.url,
+                // id: this.state.counter,
+                url: this.state.url,
                 description: this.state.description,
                 likes: 0,
             }

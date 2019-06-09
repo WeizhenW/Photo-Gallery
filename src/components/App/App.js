@@ -21,6 +21,7 @@ class App extends Component {
         this.setState({
           photoList: response.data
         })
+
       }
     ).catch(
       error => {
@@ -33,7 +34,6 @@ class App extends Component {
   componentDidMount() {
     this.loadImage();
   }
-
 
   render() {
     return (

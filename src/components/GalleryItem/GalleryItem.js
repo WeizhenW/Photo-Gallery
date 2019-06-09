@@ -27,6 +27,10 @@ class GalleryItem extends Component {
                   //call loadImage function to reload the page
                   this.props.loadImage();
               }
+          ).catch(
+              error => {
+                  console.log('error with axios put route', error);
+              }
           )
     }
 
@@ -41,7 +45,7 @@ class GalleryItem extends Component {
                     <img onClick={this.handleClickPhoto}
                         height="200px" width="200px"
                         key={this.props.photo.id}
-                        src={this.props.photo.path}
+                        src={this.props.photo.url}
                         alt={this.props.photo.description} />
                     :
                     //show description in case of falsy
