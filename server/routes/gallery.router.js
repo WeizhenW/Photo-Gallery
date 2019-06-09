@@ -43,6 +43,7 @@ router.put('/like/:id', (req, res) => {
             console.log('error with put route', error);
         }
     )
+    //below is the old code without database
     // for(const galleryItem of galleryItems) {
     //     if(galleryItem.id == galleryId) {
     //         galleryItem.likes += 1;
@@ -68,25 +69,35 @@ router.post('/', (req, res) => {
             console.log('error with axios post route', error);
         }
     )
+    //below is the old code without database
     // galleryItems.push(newItem);
-    
-
 })
 
 //DELETE Route
 router.delete('/delete/:id', (req, res) => {
     const idToDelete = req.params.id;
-    //initialize the index value
-    let index = 0;
-    //loop through to get the index of the photo to be deleted
-    galleryItems.forEach(photo => {
-        if(photo.id ==  idToDelete) { //idToDelete is string, photo.id is number
-            index = galleryItems.indexOf(photo);
+    pool.query(`
+    DELETE FROM "images" WHERE "id"=$1
+    `, [idToDelete]).then(
+        () => {
+            res.sendStatus(200);
         }
-    })
-    //delete the photo from the array
-    galleryItems.splice(index, 1);
-    res.sendStatus(200);
+    ).catch(
+        error => {
+            console.log('error with delete route', error);
+        }
+    )
+    //below is the old code without database
+    // //initialize the index value
+    // let index = 0;
+    // //loop through to get the index of the photo to be deleted
+    // galleryItems.forEach(photo => {
+    //     if(photo.id ==  idToDelete) { //idToDelete is string, photo.id is number
+    //         index = galleryItems.indexOf(photo);
+    //     }
+    // })
+    // //delete the photo from the array
+    // galleryItems.splice(index, 1);
 })
 
 
